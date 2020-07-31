@@ -3,10 +3,9 @@
   "version": "0.1.0",
   "main": "index.ts",
   "scripts": {
-    "create": "ts-node ./index.ts",
+    "file": "ts-node ./index.ts",
     "lint": "`npm bin`/eslint . --ext .ts"
   },
-  "type": "module",
   "repository": "https://github.com/SMhero/templaterator",
   "author": "SMhero <smhero62@gmail.com>",
   "keywords": [
