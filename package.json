@@ -16,7 +16,6 @@
     "javascript"
   ],
   "license": "MIT",
-  "private": true,
   "dependencies": {
     "eslint-plugin-import": "^2.22.0",
     "ts-node": "^8.10.2",
