@@ -1,14 +1,14 @@
-## Templaterator
+# Templaterator
 
 Tool for creating default code templates
 
-# How it works?
+## How it works?
 
 ```sh
   npm run file App tsx "useState useEffect"
 ```
 
-In root directory file is created with name `App` and extension `tsx`.`
+In root directory file is created with name `App` and extension `tsx`.
 `useState` and `useEffect` are hooks which will be used in and written to the file.
 
 File contain this code after command:
