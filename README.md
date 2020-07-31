@@ -17,7 +17,7 @@ File contain this code after command:
 import React, { useEffect, useState } from 'react';
 
 const App = () => {
-  const [stateValue, setStateValue] = useState();
+  const [stateValue, setStateValue] = useState('');
 
   useEffect(() => {
 

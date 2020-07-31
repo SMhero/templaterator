@@ -8,7 +8,7 @@ export const create = (hooks?: string[]): string => {
 const App = () => {
   ${hooks ? `
   ${findOption(hooks, 'useRef') ? `const refValue = useRef(null);` : ``}
-  ${findOption(hooks, 'useState') ? `const [stateValue, setStateValue] = useState();` : ``}
+  ${findOption(hooks, 'useState') ? `const [stateValue, setStateValue] = useState('');` : ``}
 
   ${findOption(hooks, 'useEffect') ?
     `useEffect(() => {
