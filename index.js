@@ -1,12 +1,12 @@
 const fs = require('fs');
-const path = require('path');
+const home = require('os').homedir();
 const react = require('./templates/react');
 const css = require('./templates/css');
 
 const templaterator = () => {
-  const dir = process.argv[2]; // direction and file name without extension
-  const extension = process.argv[3]; // file extension
-  const options = process.argv[4]; // react hooks list
+  const dir = process.argv[2];
+  const extension = process.argv[3];
+  const options = process.argv[4];
 
   if (!dir || !extension) {
     throw new Error('File name or extension isnt set');
@@ -31,7 +31,7 @@ const getTemplate = (extension, options) => {
 }
 
 const create = (dir, value) => {
-  fs.writeFile(path.join(__dirname, dir), value, (err) => {
+  fs.writeFile(`${home}/${dir}`, value, (err) => {
     if (err) throw err;
     console.log('File created!');
   });
