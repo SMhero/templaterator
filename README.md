@@ -13,7 +13,9 @@ Example:
   npm run file /Projects/templaterator/App tsx "useState useEffect"
 ```
 `/Projects/templaterator/App` - directory and file name (required)
+
 `tsx` - file extension (required)
+
 `"useState useEffect"` - options for the generated file (optional)
 
 If you don't set path (only file name) your file created in root directory on the computer
