@@ -1,7 +1,7 @@
-import fs from 'fs';
-import path from 'path';
-import { create as createReactTemplate } from './templates/react';
-import { create as createCSSTemplate} from './templates/css';
+const fs = require('fs');
+const path = require('path');
+const react = require('./templates/react');
+const css = require('./templates/css');
 
 const templaterator = () => {
   const dir = process.argv[2]; // direction and file name without extension
@@ -16,22 +16,22 @@ const templaterator = () => {
   create(`${dir}.${extension}`, getTemplate(extension, options));
 }
 
-const getTemplate = (extension: string, options: string) => {
+const getTemplate = (extension, options) => {
   const templateOptions = options ? options.split(' ') : undefined;
 
   if (extension === 'jsx' || extension === 'tsx') {
-    return createReactTemplate(templateOptions);
+    return react.create(templateOptions);
   }
 
   if (extension == 'css') {
-    return createCSSTemplate();
+    return css.create();
   }
 
   return '';
 }
 
-const create = (dir: string, value: string) => {
-  fs.writeFile(path.join(__dirname, dir), value, (err: any) => {
+const create = (dir, value) => {
+  fs.writeFile(path.join(__dirname, dir), value, (err) => {
     if (err) throw err;
     console.log('File created!');
   });
