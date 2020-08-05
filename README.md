@@ -13,10 +13,9 @@ Example:
   npm run file "tsx" /Projects/templaterator/ "useState useEffect"
 ```
 
-`"tsx"` - file (or files, `tsx css js` and etc.) extension (required).
+`"tsx"` - file or files, (`"tsx css js"`) extension (required).
 
-`/Projects/templaterator/` - directory (optional). On default files will be create in root directory.
-of your project
+`/Projects/templaterator/` - directory (optional). On default files will be create in root directory of your project.
 
 `"useState useEffect"` - options for the generated file (optional). Available only for `tsx` and `jsx` now.
 
