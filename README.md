@@ -5,22 +5,22 @@ Tool for creating default code templates
 ## How it works?
 
 ```sh
-  npm run file /PROJECT_PATH/App tsx "useState useEffect"
+  npm run file "tsx" /PROJECT_PATH/ "useState useEffect"
 ```
 Example:
 
 ```sh
-  npm run file /Projects/templaterator/App tsx "useState useEffect"
+  npm run file "tsx" /Projects/templaterator/ "useState useEffect"
 ```
-`/Projects/templaterator/App` - directory and file name (required)
 
-`tsx` - file extension (required)
+`"tsx"` - file (or files, `tsx css js` and etc.) extension (required).
 
-`"useState useEffect"` - options for the generated file (optional)
+`/Projects/templaterator/` - directory (optional). On default files will be create in root directory.
+of your project
 
-If you don't set path (only file name) your file created in root directory on the computer
+`"useState useEffect"` - options for the generated file (optional). Available only for `tsx` and `jsx` now.
 
-In directory file is created with name `App` and extension `tsx`.
+In directory file is created with name `Template` and extension `tsx` or `css`.
 `useState` and `useEffect` are hooks which will be used in and written to the file.
 
 File contain this code after command:
@@ -28,7 +28,9 @@ File contain this code after command:
 ```sh
 import React, { useEffect, useState } from 'react';
 
-const App = () => {
+import styles from './Template.css'
+
+const Template = () => {
   const [stateValue, setStateValue] = useState('');
 
   useEffect(() => {
@@ -39,6 +41,8 @@ const App = () => {
     <div />
   );
 }
+
+export default Template;
 ```
 
 Works same for `.jsx` extension.
@@ -48,7 +52,7 @@ Works same for `.jsx` extension.
 Add to package.json in your project next npm command:
 
 ```sh
-npm explore templaterator -- npm run file
+npm explore templaterator -- npm run file `YOUR_PARAMS`
 ```
 
-Set arguments and it's done!
+And it's done!

@@ -4,22 +4,23 @@ const react = require('./templates/react');
 const css = require('./templates/css');
 
 const templaterator = () => {
-  const dir = process.argv[2];
-  const extension = process.argv[3];
+  const extensions = process.argv[2];
+  const dir = process.argv[3] ? `${home}${process.argv[3]}` : __dirname;
   const options = process.argv[4];
 
-  if (!dir || !extension) {
-    throw new Error('File name or extension isnt set');
+  if (!extensions) {
+    throw new Error('File path, extension isnt set');
   }
 
-
-  create(`${dir}.${extension}`, getTemplate(extension, options));
+  const extensionsList = extensions.split(' ');
+  extensionsList.forEach((ext) => {
+    create(`${dir}/Template.${ext}`, getTemplate(ext, options));
+  })
 }
 
 const getTemplate = (extension, options) => {
-  const templateOptions = options ? options.split(' ') : undefined;
-
   if (extension === 'jsx' || extension === 'tsx') {
+    const templateOptions = options ? options.split(' ') : undefined;
     return react.create(templateOptions);
   }
 
@@ -31,9 +32,11 @@ const getTemplate = (extension, options) => {
 }
 
 const create = (dir, value) => {
-  fs.writeFile(`${home}/${dir}`, value, (err) => {
-    if (err) throw err;
-    console.log('File created!');
+  fs.writeFile(dir, value, (err) => {
+    if (err) {
+      throw new Error(err);
+    }
+    console.log(`${dir} is created!`);
   });
 };
 

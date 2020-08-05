@@ -1,3 +1,15 @@
 module.exports.create = function () {
-  return `.root {}`;
+  return (
+`.root {
+
+}
+
+.block {
+
+}
+
+.item {
+
+}
+`);
 };
