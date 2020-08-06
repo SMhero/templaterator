@@ -2,6 +2,7 @@ const fs = require('fs');
 const home = require('os').homedir();
 const react = require('./templates/react');
 const css = require('./templates/css');
+const stories = require('./templates/stories');
 
 const templaterator = () => {
   const extensions = process.argv[2];
@@ -24,8 +25,12 @@ const getTemplate = (extension, options) => {
     return react.create(templateOptions);
   }
 
-  if (extension == 'css') {
+  if (extension === 'css') {
     return css.create();
+  }
+
+  if (extension === 'stories.jsx' || extension === 'stories.tsx') {
+    return stories.create();
   }
 
   return '';

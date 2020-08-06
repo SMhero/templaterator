@@ -1,6 +1,6 @@
 {
   "name": "templaterator",
-  "version": "0.3.3",
+  "version": "0.4.3",
   "main": "index.js",
   "scripts": {
     "file": "node ./index.js"
