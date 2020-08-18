@@ -5,19 +5,19 @@ Tool for creating default code templates
 ## How it works?
 
 ```sh
-  npm run file "tsx" /PROJECT_PATH/ "useState useEffect"
+  npm run file "tsx" "useState useEffect" /PROJECT_PATH/
 ```
 Example:
 
 ```sh
-  npm run file "tsx" /Projects/templaterator/ "useState useEffect"
+  npm run file "tsx" "useState useEffect" /Projects/templaterator/
 ```
 
 `"tsx"` - file or files, (`"tsx css js"`) extension (required).
 
-`/Projects/templaterator/` - directory (optional). On default files will be create in root directory of your project.
-
 `"useState useEffect"` - options for the generated file (optional). Available only for `tsx` and `jsx` now.
+
+`/Projects/templaterator/` - directory (optional). On default files will be create in root directory of your project.
 
 In directory file is created with name `Template` and extension `tsx` or `css`.
 `useState` and `useEffect` are hooks which will be used in and written to the file.
@@ -45,6 +45,10 @@ export default Template;
 ```
 
 Works same for `.jsx` extension.
+
+## Which file extensions is supporting?
+
+`.jsx`, `.tsx`, `.css` and `.stories.jsx` (`.stories.tsx` of course) are currently supported.
 
 ## Call how npm module
 

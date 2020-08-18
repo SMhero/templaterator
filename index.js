@@ -5,12 +5,13 @@ const css = require('./templates/css');
 const stories = require('./templates/stories');
 
 const templaterator = () => {
-  const extensions = process.argv[2];
-  const dir = process.argv[3] ? `${home}${process.argv[3]}` : __dirname;
-  const options = process.argv[4];
+  const extensions = process.argv[2]; // jsx tsx css
+  const dir = process.argv[4] ? `${home}${process.argv[4]}` : __dirname;
+  // if has argument directory will be: user/user_name/your_path
+  const options = process.argv[3]; // react hooks
 
   if (!extensions) {
-    throw new Error('File path, extension isnt set');
+    throw new Error('File(s) extension isnt set');
   }
 
   const extensionsList = extensions.split(' ');
@@ -41,6 +42,7 @@ const create = (dir, value) => {
     if (err) {
       throw new Error(err);
     }
+
     console.log(`${dir} is created!`);
   });
 };

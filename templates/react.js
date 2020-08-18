@@ -1,5 +1,5 @@
 
-const tools = require('../tools/index');
+const tools = require('../tools/find-option');
 
 module.exports.create = function (hooks) {
   return (
@@ -8,21 +8,22 @@ module.exports.create = function (hooks) {
 import styles from './Template.css';
 
 const Template = () => {
-${hooks ? `
-  ${tools.findOption(hooks, 'useRef') ? `const refValue = useRef(null);` : ``}
-  ${tools.findOption(hooks, 'useState') ? `const [stateValue, setStateValue] = useState('');` : ``}
+  ${`${hooks && tools.findOption(hooks, 'useRef') ?
+    `const refValue = useRef(null);` : ``}
 
-  ${tools.findOption(hooks, 'useEffect') ?
+  ${hooks && tools.findOption(hooks, 'useState') ?
+    `const [stateValue, setStateValue] = useState('');` : ``}
+
+  ${hooks && tools.findOption(hooks, 'useEffect') ?
     `useEffect(() => {
 
-  }, [])` : ``}`.trim()
-  : ``}
+  }, [])` : ``}`.trim()}
 
   return (
     <div />
   );
 }
 
-export default Template;
+export default ${hooks ? `${tools.findOption(hooks, 'memo') ? `memo(Template)` : ``}` : `Template`};
 `)
 };
